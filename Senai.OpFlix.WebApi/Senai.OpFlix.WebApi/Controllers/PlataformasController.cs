@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Senai.OpFlix.WebApi.Domains;
+using Senai.OpFlix.WebApi.Interfaces;
+using Senai.OpFlix.WebApi.Repositories;
+
+namespace Senai.OpFlix.WebApi.Controllers
+{
+    [Route("api/[controller]")]
+    [Produces("application/json")]
+    [ApiController]
+    public class PlataformasController : ControllerBase
+    {
+        private IPlataformaRepository PlataformaRepository { get; set; }
+
+        public PlataformasController()
+        {
+            PlataformaRepository = new PlataformaRepository();
+        }
+
+        [HttpGet]
+        public IActionResult ListarPlataformas()
+        {
+            return Ok(PlataformaRepository.Listar());
+        }
+
+        [HttpPost]
+        public IActionResult CadastrarPlataforma(Plataformas plataforma)
+        {
+            try
+            {
+                PlataformaRepository.Cadastrar(plataforma);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(new { mensagem = ex.Message });
+            }
+        }
+
+        [HttpPut]
+        public IActionResult AtualizarPlataforma(Plataformas plataforma)
+        {
+            try
+            {
+                Plataformas PlataformaEncontrada = PlataformaRepository.BuscarPorId(plataforma.IdPlataforma);
+
+                if (PlataformaEncontrada == null)
+                {
+                    return NotFound();
+                }
+                PlataformaRepository.Atualizar(plataforma);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(new { mensagem = ex.Message });
+            }
+        }
+    }
+}
