@@ -17,16 +17,20 @@ namespace Senai.OpFlix.WebApi.Repositories
             Lancamentos LancamentoBuscado = ctx.Lancamentos.FirstOrDefault(x => x.IdLancamento == lancamento.IdLancamento);
             LancamentoBuscado.Titulo = lancamento.Titulo;
             LancamentoBuscado.Sinopse = lancamento.Sinopse;
-            LancamentoBuscado.IdCategoriaNavigation = lancamento.IdCategoriaNavigation;
-            LancamentoBuscado.IdClassificaoNavigation = lancamento.IdClassificaoNavigation;
+            LancamentoBuscado.IdCategoria = lancamento.IdCategoria;
+            LancamentoBuscado.IdClassificao = lancamento.IdClassificao;
+            LancamentoBuscado.IdTipoLancamento = lancamento.IdTipoLancamento;
+            LancamentoBuscado.IdPlataforma = lancamento.IdPlataforma;
             LancamentoBuscado.DuracaoMin = lancamento.DuracaoMin;
-            LancamentoBuscado.IdTipoLancamentoNavigation = lancamento.IdTipoLancamentoNavigation;
             LancamentoBuscado.DataLancamento = lancamento.DataLancamento;
+
+            ctx.Lancamentos.Update(LancamentoBuscado);
+            ctx.SaveChanges();
         }
 
         public Lancamentos BuscarPorId(int id)
         {
-            Lancamentos lancamento = ctx.Lancamentos.FirstOrDefault(x => x.IdLancamento == id);
+            Lancamentos lancamento = ctx.Lancamentos.Include(x => x.IdCategoriaNavigation).Include(x => x.IdClassificaoNavigation).Include(x => x.IdPlataformaNavigation).Include(x => x.IdTipoLancamentoNavigation).FirstOrDefault(x => x.IdLancamento == id);
             return lancamento;
         }
 

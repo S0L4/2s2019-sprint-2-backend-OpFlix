@@ -63,9 +63,9 @@ namespace Senai.OpFlix.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
-
             app.UseAuthentication();
+        
+            app.UseMvc();
 
             app.UseSwagger();
 
