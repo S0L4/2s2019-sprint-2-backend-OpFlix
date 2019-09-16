@@ -17,6 +17,7 @@ namespace Senai.OpFlix.WebApi.Domains
 
         public virtual DbSet<Categorias> Categorias { get; set; }
         public virtual DbSet<Classificacoes> Classificacoes { get; set; }
+        public virtual DbSet<Favoritos> Favoritos { get; set; }
         public virtual DbSet<Lancamentos> Lancamentos { get; set; }
         public virtual DbSet<Plataformas> Plataformas { get; set; }
         public virtual DbSet<TipoLancamento> TipoLancamento { get; set; }
@@ -28,7 +29,7 @@ namespace Senai.OpFlix.WebApi.Domains
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress; Initial Catalog=T_OpFlix;User Id=sa;Pwd=132");
+                optionsBuilder.UseSqlServer("Data Source=.\\SqlExpress;Initial Catalog=T_OpFlix;User Id=sa;Pwd=132");
             }
         }
 
@@ -55,6 +56,21 @@ namespace Senai.OpFlix.WebApi.Domains
                 entity.Property(e => e.Idade)
                     .HasMaxLength(10)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Favoritos>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.HasOne(d => d.IdLancamentoNavigation)
+                    .WithMany(p => p.Favoritos)
+                    .HasForeignKey(d => d.IdLancamento)
+                    .HasConstraintName("FK__Favoritos__IdLan__2A164134");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.Favoritos)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .HasConstraintName("FK__Favoritos__IdUsu__29221CFB");
             });
 
             modelBuilder.Entity<Lancamentos>(entity =>

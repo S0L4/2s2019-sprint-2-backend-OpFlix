@@ -1,0 +1,449 @@
+{
+	"info": {
+		"_postman_id": "537369c4-a482-4171-aa88-a123adf3e9b4",
+		"name": "Senai.OpFlix.Tarde",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Categorias",
+			"item": [
+				{
+					"name": "Categorias.Listar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhc3NpYW5hQGVtYWlsLmNvbSIsImp0aSI6IjIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY4MTQwOTQwLCJpc3MiOiJPcEZsaXguV2ViQXBpIiwiYXVkIjoiT3BGbGl4LldlYkFwaSJ9.r2fL0IZRhVKdDmqjsgasCKfFAZG_0GGMaee4GEBJANU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idPeca\" : 5,\n\t\"idFornecedor\" : 2,\n\t\"Preco\" : \"5,00\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/vendas",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"vendas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"Romance\",\r\n        \"lancamentos\": []\r\n    }"
+						},
+						"url": {
+							"raw": "localhost:5000/api/categorias",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categorias.Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"idCategoria\": 10,\r\n        \"nome\": \"Comédia Romântica\",\r\n        \"lancamentos\": []\r\n    }"
+						},
+						"url": {
+							"raw": "localhost:5000/api/categorias",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plataformas",
+			"item": [
+				{
+					"name": "Plataformas.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/plataformas",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"plataformas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Plataformas.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"xvideos\",\r\n        \"lancamentos\": []\r\n    }"
+						},
+						"url": {
+							"raw": "localhost:5000/api/plataformas",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"plataformas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Plataformas.Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"idPlataforma\": 6,\r\n        \"nome\": \"X-Videos\",\r\n        \"lancamentos\": []\r\n    }"
+						},
+						"url": {
+							"raw": "localhost:5000/api/categorias",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lançamentos",
+			"item": [
+				{
+					"name": "Lancamentos.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/lancamentos",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lancamentos.BuscarPorId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:5000/api/lancamentos/18",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lancamentos.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Norbit\",\r\n    \"sinopse\": \"Uma véia gorda se casa com um nerdão porque ele é ricão, mas o nerd quer ficar com sua amiga de infância. Como Rasputia é mt ciumenta, Norbit tenta realizar o seu sonho as econdidas mas como ele irá esconder essa comédia de peso.\",\r\n    \"dataLancamento\": \"2007-02-09T00:00:00\",\r\n    \"idPlataforma\": 2,\r\n    \"idCategoria\": 7,\r\n    \"idClassificao\": 3,\r\n    \"idTipoLancamento\": 1,\r\n    \"duracaoMin\": 103\r\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/lancamentos",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lancamentos.Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idLancamento\": 18,\r\n    \"titulo\": \"Norbit : Uma Comédia de Peso\",\r\n    \"sinopse\": \"Uma véia gorda se casa com um nerdão porque ele é ricão, mas o nerd quer ficar com sua amiga de infância. Como Rasputia é mt ciumenta, Norbit tenta realizar o seu sonho as econdidas mas como ele irá esconder essa comédia de peso.\",\r\n    \"dataLancamento\": \"2007-02-09T00:00:00\",\r\n    \"idPlataforma\": 2,\r\n    \"idCategoria\": 7,\r\n    \"idClassificao\": 3,\r\n    \"idTipoLancamento\": 1,                                                                            \r\n    \"duracaoMin\": 103,\r\n\r\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/lancamentos",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lancamentos.Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/lancamentos/12",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos",
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TipoLançamento",
+			"item": [
+				{
+					"name": "TipoLancamento.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/api/lancamentos",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"lancamentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipoLancamento.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"tipo\": \"Desenhos\",\r\n        \"lancamentos\": []\r\n    }"
+						},
+						"url": {
+							"raw": "localhost:5000/api/tiposlancamento",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tiposlancamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TipoLancamento.Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"idTipoLancamento\": 3,\r\n        \"tipo\": \"Desenho Animado\",\r\n        \"lancamentos\": []\r\n    }"
+						},
+						"url": {
+							"raw": "localhost:5000/api/tiposlancamento",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tiposlancamento"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Logar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\" : \"cassiana@email.com\",\n\t\"senha\" : \"123456\"\n}"
+						},
+						"url": {
+							"raw": "localhost:5000/api/usuarios/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"usuarios",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
