@@ -44,10 +44,10 @@ namespace Senai.OpFlix.WebApi.Controllers
         }
 
         [Authorize(Roles = "Administrador")]
-        [HttpGet("{plataforma}")]
+        [HttpGet("filtroplataforma/{nome}")]
         public IActionResult BuscarLancamentoPorPlataforma(string nome)
         {
-            Lancamentos Lancamento = LancamentoRepository.BuscarPorPlataforma(nome);
+            List<Lancamentos> Lancamento = LancamentoRepository.BuscarPorPlataforma(nome);
 
             if (Lancamento == null)
             {
@@ -57,10 +57,10 @@ namespace Senai.OpFlix.WebApi.Controllers
         }
 
         [Authorize(Roles = "Administrador")]
-        [HttpGet("{plataforma}")]
+        [HttpGet("filtrodata/{data}")]
         public IActionResult BuscarLancamentoPorData(DateTime data)
         {
-            Lancamentos Lancamento = LancamentoRepository.BuscarPorDataLancamento(data);
+            List<Lancamentos> Lancamento = LancamentoRepository.BuscarPorDataLancamento(data);
 
             if (Lancamento == null)
             {

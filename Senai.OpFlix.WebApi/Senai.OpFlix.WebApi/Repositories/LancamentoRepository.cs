@@ -34,16 +34,14 @@ namespace Senai.OpFlix.WebApi.Repositories
             return lancamento;
         }
 
-        public Lancamentos BuscarPorPlataforma(string nome)
+        public List<Lancamentos> BuscarPorPlataforma(string nome)
         {
-            Lancamentos lancamento = ctx.Lancamentos.Include(x => x.IdCategoriaNavigation).Include(x => x.IdClassificaoNavigation).Include(x => x.IdTipoLancamentoNavigation).FirstOrDefault(x => x.IdPlataformaNavigation.Nome == nome);
-            return lancamento;
+            return ctx.Lancamentos.Include(x => x.IdPlataformaNavigation).Where(x => x.IdPlataformaNavigation.Nome == nome).ToList();
         }
 
-        public Lancamentos BuscarPorDataLancamento(DateTime data)
+        public List<Lancamentos> BuscarPorDataLancamento(DateTime data)
         {
-            Lancamentos lancamento = ctx.Lancamentos.Include(x => x.IdCategoriaNavigation).Include(x => x.IdClassificaoNavigation).Include(x => x.IdPlataformaNavigation).Include(x => x.IdTipoLancamentoNavigation).FirstOrDefault(x => x.DataLancamento == data);
-            return lancamento;
+            return ctx.Lancamentos.Where(x => x.DataLancamento == data).ToList();
         }
 
         public void Cadastrar(Lancamentos lancamento)
