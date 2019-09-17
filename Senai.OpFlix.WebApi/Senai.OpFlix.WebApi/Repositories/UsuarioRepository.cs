@@ -29,5 +29,10 @@ namespace Senai.OpFlix.WebApi.Repositories
             ctx.Usuarios.Add(usuario);
             ctx.SaveChanges();
         }
+
+        public List<Usuarios> Listar()
+        {
+            return ctx.Usuarios.ToList();
+        }
     }
 }

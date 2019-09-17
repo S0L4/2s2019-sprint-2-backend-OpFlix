@@ -28,6 +28,13 @@ namespace Senai.OpFlix.WebApi.Controllers
         }
 
         [Authorize(Roles = "Administrador")]
+        [HttpGet]
+        public IActionResult ListarUsuarios()
+        {
+            return Ok(UsuarioRepository.Listar());
+        }
+
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         public IActionResult CadastrarUsuario(Usuarios usuario)
         {
